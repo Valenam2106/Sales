@@ -29,7 +29,7 @@ namespace Sales.Backend.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Products products = await db.Products.FindAsync(id);
+            Product products = await db.Products.FindAsync(id);
             if (products == null)
             {
                 return HttpNotFound();
@@ -48,7 +48,7 @@ namespace Sales.Backend.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "ProductId,Description,Price,IsAvailable,PublishOn")] Products products)
+        public async Task<ActionResult> Create([Bind(Include = "ProductId,Description,Price,IsAvailable,PublishOn")] Product products)
         {
             if (ModelState.IsValid)
             {
@@ -67,7 +67,7 @@ namespace Sales.Backend.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Products products = await db.Products.FindAsync(id);
+            Product products = await db.Products.FindAsync(id);
             if (products == null)
             {
                 return HttpNotFound();
@@ -80,7 +80,7 @@ namespace Sales.Backend.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "ProductId,Description,Price,IsAvailable,PublishOn")] Products products)
+        public async Task<ActionResult> Edit([Bind(Include = "ProductId,Description,Price,IsAvailable,PublishOn")] Product products)
         {
             if (ModelState.IsValid)
             {
@@ -98,7 +98,7 @@ namespace Sales.Backend.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Products products = await db.Products.FindAsync(id);
+            Product products = await db.Products.FindAsync(id);
             if (products == null)
             {
                 return HttpNotFound();
@@ -111,7 +111,7 @@ namespace Sales.Backend.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> DeleteConfirmed(int id)
         {
-            Products products = await db.Products.FindAsync(id);
+            Product products = await db.Products.FindAsync(id);
             db.Products.Remove(products);
             await db.SaveChangesAsync();
             return RedirectToAction("Index");

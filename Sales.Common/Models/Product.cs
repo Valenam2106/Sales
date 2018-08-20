@@ -3,7 +3,7 @@
     using System;
     using System.ComponentModel.DataAnnotations;
 
-    public class Products
+    public class Product
     {
         [Key]
         public int ProductId { get; set; }

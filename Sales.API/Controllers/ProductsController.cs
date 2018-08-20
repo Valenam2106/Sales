@@ -18,16 +18,16 @@ namespace Sales.API.Controllers
         private DataContext db = new DataContext();
 
         // GET: api/Products
-        public IQueryable<Products> GetProducts()
+        public IQueryable<Product> GetProducts()
         {
             return db.Products;
         }
 
         // GET: api/Products/5
-        [ResponseType(typeof(Products))]
+        [ResponseType(typeof(Product))]
         public IHttpActionResult GetProducts(int id)
         {
-            Products products = db.Products.Find(id);
+            Product products = db.Products.Find(id);
             if (products == null)
             {
                 return NotFound();
@@ -38,7 +38,7 @@ namespace Sales.API.Controllers
 
         // PUT: api/Products/5
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutProducts(int id, Products products)
+        public IHttpActionResult PutProducts(int id, Product products)
         {
             if (!ModelState.IsValid)
             {
@@ -72,8 +72,8 @@ namespace Sales.API.Controllers
         }
 
         // POST: api/Products
-        [ResponseType(typeof(Products))]
-        public IHttpActionResult PostProducts(Products products)
+        [ResponseType(typeof(Product))]
+        public IHttpActionResult PostProducts(Product products)
         {
             if (!ModelState.IsValid)
             {
@@ -87,10 +87,10 @@ namespace Sales.API.Controllers
         }
 
         // DELETE: api/Products/5
-        [ResponseType(typeof(Products))]
+        [ResponseType(typeof(Product))]
         public IHttpActionResult DeleteProducts(int id)
         {
-            Products products = db.Products.Find(id);
+            Product products = db.Products.Find(id);
             if (products == null)
             {
                 return NotFound();
