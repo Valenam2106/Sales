@@ -1,12 +1,14 @@
 ﻿namespace Sales.Services
 {
     using System;
-    using Sales.Common.Models;
-    using System.Threading.Tasks;
-    using System.Net.Http;
-    using Newtonsoft.Json;
     using System.Collections.Generic;
+    using System.Net.Http;
+    using System.Threading.Tasks;
+    using Newtonsoft.Json;
     using Plugin.Connectivity;
+    using Sales.Common.Models;
+    using Sales.Helpers;
+
 
     public class ApiService
     {
@@ -17,7 +19,7 @@
                 return new Response
                 {
                     IsSuccess = false,
-                    Message = "Please turn on your internet settings.",
+                    Message = Languages.TurnOnInternet,
                 };
             }
 
@@ -27,7 +29,7 @@
                 return new Response
                 {
                     IsSuccess = false,
-                    Message = "No internet connection.",
+                    Message = Languages.NoInternet,
                 };
             }
 
